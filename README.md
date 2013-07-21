@@ -5,11 +5,14 @@ A simple tic-tac-toe game using the minimax algorithm.
 
 TODO
 ====
+
 - Make a nice game with UI using Allegro 5
 
 License
 =======
+
 Copyright (C) 2013 Mihael Wagner
+
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the "Software"), 
 to deal in the Software without restriction, including without limitation 
