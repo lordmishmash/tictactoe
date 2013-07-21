@@ -151,16 +151,6 @@ mm_node_t* mm_create_tree (int max_depth)
     return node;
 }
 
-int mm_get_children_count (mm_node_t* node)
-{
-    return node->children_count;
-}
-
-bool mm_is_leaf_node (mm_node_t* node)
-{
-    return node->children_count == 0;
-}
-
 int mm_get_best_move (mm_node_t* node, T3BOARD* board, STATE active)
 {
     _mm_get_best_move (node, board, active, 0);

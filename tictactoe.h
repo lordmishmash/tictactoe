@@ -50,17 +50,11 @@ typedef enum
 
 typedef struct
 {
-    SCORE   score;
-    T3BOARD*     board;
-    struct mm_node_t**  children;
-    int          children_count;
     int          max_depth;
     int          best;
 } mm_node_t, mm_tree_t;
 
 mm_node_t* mm_create_tree   (int max_depth);
-int   mm_get_children_count (mm_node_t* node);
-bool  mm_is_leaf_node       (mm_node_t* node);
 int   mm_get_best_move      (mm_node_t* node, T3BOARD* board, STATE active);
 SCORE _mm_get_best_move     (mm_node_t* node, T3BOARD* board, STATE active, int depth);
 
