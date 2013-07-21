@@ -55,6 +55,7 @@ typedef struct
 } mm_node_t, mm_tree_t;
 
 mm_node_t* mm_create_tree   (int max_depth);
+void mm_destroy_tree        (mm_node_t* tree);
 int   mm_get_best_move      (mm_node_t* node, T3BOARD* board, STATE active);
 SCORE _mm_get_best_move     (mm_node_t* node, T3BOARD* board, STATE active, int depth);
 

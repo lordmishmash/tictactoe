@@ -134,12 +134,9 @@ bool make_move (T3BOARD* board, STATE state, int pos)
 
 bool _valid_move (T3BOARD* board, int pos)
 {
-    if (pos < 0 || pos > 9)
-        return false;
-
-    if (board->state[pos] != EMPTY)
-        return false;
-    return true;
+    if (pos >= 0 && pos <= 9 && board->state[pos] == EMPTY)
+        return true;
+    return false;
 }
 
 mm_node_t* mm_create_tree (int max_depth)
@@ -149,6 +146,11 @@ mm_node_t* mm_create_tree (int max_depth)
     node->best      = -1;
 
     return node;
+}
+
+void mm_destroy_tree (mm_node_t* node)
+{
+    free (node);
 }
 
 int mm_get_best_move (mm_node_t* node, T3BOARD* board, STATE active)
@@ -196,7 +198,10 @@ SCORE _mm_get_best_move (mm_node_t* node, T3BOARD* board, STATE active, int dept
             }
         }
         node->best = candidate->children[rand() % candidate->length];
+
+        _destroy_move_list (candidate);
         _destroy_move_list (moves);
+        _destroy_move_list (candidates);
     }
 
     return score;

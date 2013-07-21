@@ -17,10 +17,15 @@ int main (int argc, char *argv[])
     {
         if (who == ONE)
         {
-
             printf ("enter move: ");
-            scanf ("%d", &move);
+
+            while(!_valid_move(board, move - 1)) {
+                scanf ("%d", &move);
+            }
+            printf ("\n");
+
             make_move (board, ONE, move - 1);
+            move = -1;
         }
         else if (who == TWO)
         {
@@ -31,15 +36,20 @@ int main (int argc, char *argv[])
         }
 
 
-
-        who = who == ONE ? TWO : ONE;
         print_board (board);
 
-        if (_board_winner(board) || board_full(board))
+        if (_board_winner(board)) {
+            printf ("Winner is %s\n", who == ONE ? "X" : "O");
             break;
+        }
+        else if (board_full(board)) {
+            printf ("Tie game.\n");
+        }
+        who = who == ONE ? TWO : ONE;
 
     }
-    printf ("win\n");
+    mm_destroy_tree(tree);
+    destroy_board(board);
 
     return 0;
 }
