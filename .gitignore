@@ -1,0 +1,32 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.cbp
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Precompiled headers
+*.gch
+
+# Project specific files
+allegro.log
+diseased.config
+*.depend
+*.layout
+gmon.out
+
+#
+bin/*
+res/*
+!res/core.pak
+
+# Executable files
+*.exe
